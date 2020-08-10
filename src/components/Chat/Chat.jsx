@@ -17,7 +17,7 @@ class Chat extends Component {
     }
 
     send() {
-        this.props.messageAction.send(this.state.message)
+        this.props.send(this.state.message)
     }
 
     render() {
@@ -28,17 +28,17 @@ class Chat extends Component {
                     <p>Hello. How are you today?</p>
                     <span className="time-right">11:00</span>
                 </div>
-                {/* {
-                    this.props.data.messages.map((mess, key) => {
+                {
+                    this.props.messages.map((mess, key) => {
                         return (
-                                <div key={key} className="container darker">
-                                    <img src="https://www.w3schools.com/w3images/avatar_g2.jpg" alt="Avatar" className="right"></img>
-                                    <p>{mess.content}</p>
-                                    <span className="time-left">11:01</span>
-                                </div>
+                            <div key={key} className="container darker">
+                                <img src="https://www.w3schools.com/w3images/avatar_g2.jpg" alt="Avatar" className="right"></img>
+                                <p>{mess.content}</p>
+                                <span className="time-left">11:01</span>
+                            </div>
                         )
                     })
-                } */}
+                }
                 <div className="form-group">
                     <label className="badge badge-success mb-1 mt-4">Enter messages</label>
                     <textarea onChange={this.enterMessage} className="form-control" rows="3"></textarea>

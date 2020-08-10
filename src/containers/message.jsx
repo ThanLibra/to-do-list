@@ -6,12 +6,10 @@ import { send } from '../action/message';
 
 class MessageMain extends Component {
     render() {
-        console.log(this.props)
-        // const { messages } = this.props.data.messages;
         return (
             <Chat
-                // messages = {messages}
-                messageAction = {this.props.action.send}
+                messages = {this.props.data.messages}
+                send = {this.props.actions.send}
             />
         )
     }
@@ -26,6 +24,8 @@ function mapDispatchToProps(dispatch) {
   }
   
   function mapStateToProps(state) {
+    console.log(state)
+
     return {
       data: {
         messages: state.messages

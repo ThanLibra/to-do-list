@@ -1,13 +1,12 @@
 import { SEND } from '../actionType/message';
 
-const initState = {
-    messages: [{content: 'hello'}]
-}
+const initState = []
 
-const message = (state = initState, action =  {}) => {
+const messages = (state = initState, action =  {}) => {
     switch (action.type) {
         case SEND: {
-            state.messages.push({ content: action.data });
+            state.push({ content: action.data });
+            console.log(state)
             return state;
         }
 
@@ -17,4 +16,4 @@ const message = (state = initState, action =  {}) => {
     }
 }
 
-export default message;
+export default messages;
