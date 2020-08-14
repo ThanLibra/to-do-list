@@ -5,7 +5,8 @@ import { Provider } from 'react-redux';
 import store from './store/configureStore';
 import styled from 'styled-components';
 import './lang/i18n';
-
+import './lang/timeago';
+// import * as timeago from 'timeago.js';
 import {
     BrowserRouter as Router,
     Switch,

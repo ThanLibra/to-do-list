@@ -5,7 +5,7 @@ const initState = []
 const messages = (state = initState, action =  {}) => {
     switch (action.type) {
         case FETCH: {
-            return [...state, { content: action.data }];
+            return [...state, { content: action.data, time: new Date() }];
         }
 
         default: return state;
