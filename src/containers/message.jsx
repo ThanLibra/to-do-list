@@ -2,38 +2,51 @@ import Chat from '../components/Chat/Chat';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { send } from '../action/message';
-
+import * as messageAction from '../action/message';
+import styled from 'styled-components';
+const CenterCpn = styled.div`
+  >div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    height: 600px;
+  }`;
 class MessageMain extends Component {
-    render() {
-        return (
-            <Chat
-                messages = {this.props.data.messages}
-                send = {this.props.actions.send}
-            />
-        )
-    }
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <CenterCpn>
+        <Chat
+          messages={this.props.data.messages}
+          messageAction={this.props.actions.messageAction}
+        />
+      </CenterCpn>
+    )
+  }
 }
 
 function mapDispatchToProps(dispatch) {
-    return {
-      actions: {
-        send: bindActionCreators(send, dispatch),
-      },
-    };
-  }
-  
-  function mapStateToProps(state) {
-    console.log(state)
+  return {
+    actions: {
+      messageAction: bindActionCreators(messageAction, dispatch),
+    },
+  };
+}
 
-    return {
-      data: {
-        messages: state.messages
-      },
-    };
-  }
-  
-  export default (connect(
-    mapStateToProps,
-    mapDispatchToProps,
-  )(MessageMain));
+function mapStateToProps(state) {
+  return {
+    data: {
+      messages: state.messages
+    },
+  };
+}
+
+export default (connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(MessageMain));

@@ -1,18 +1,14 @@
-import { SEND } from '../actionType/message';
+import { FETCH } from '../actionType/message';
 
 const initState = []
 
 const messages = (state = initState, action =  {}) => {
     switch (action.type) {
-        case SEND: {
-            state.push({ content: action.data });
-            console.log(state)
-            return state;
+        case FETCH: {
+            return [...state, { content: action.data }];
         }
 
-        default: {
-            return state;
-        }
+        default: return state;
     }
 }
 
