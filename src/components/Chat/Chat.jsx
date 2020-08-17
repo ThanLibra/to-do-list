@@ -33,15 +33,16 @@ class Chat extends Component {
         console.log('error');
     }
     async submitSend() {
-        if (this.state.message != ''){
-            this.props.messageAction.send(this.state.message, this.onSuccess, this.onError);
-            this.setState({ message: '' })
+        if (this.state.message.trim() != ''){
+            console.log("messagesss= " + this.state.message.trim() + ' len =' + this.state.message.length)
+            await this.props.messageAction.send(this.state.message, this.onSuccess, this.onError);
+            await this.setState({ message: '' })
+            await this.setState((prevState) => {return {scrollTop: prevState.scrollTop + 100}})
+            this.scrollToBottom();
         }
-        await this.setState((prevState) => {return {scrollTop: prevState.scrollTop + 100}})
-        this.scrollToBottom();
     }
     scrollToBottom = () => {
-        // this.refListMessage.current.scrollTo({ top: this.state.scrollTop, behavior: 'smooth' })
+        this.refListMessage.current.scrollTo({ top: this.state.scrollTop, behavior: 'smooth' })
     }
     changeLang = () => {
         const cLang = this.state.currentLang == this.state.lang.en ? this.state.lang.ja : this.state.lang.en;
