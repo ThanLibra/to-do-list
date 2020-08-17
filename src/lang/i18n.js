@@ -1,7 +1,7 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import en from './locales/en';
-import jp from './locales/jp';
+import ja from './locales/ja';
 
 const language = 'en'
 
@@ -10,9 +10,9 @@ i18n
   .init({
     resources: {
       en,
-      jp
+      ja
     },
-    fallbackLng: 'jp',
+    fallbackLng: 'ja',
     lng: language,
 
     interpolation: {

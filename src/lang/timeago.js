@@ -1,26 +1,21 @@
-// import * as timeago from 'timeago.js';
+import * as timeago from 'timeago.js';
 
-// var locale = function(number, index, totalSec) {
-//     // number: the time ago / time in number;
-//     // index: the index of array below;
-//     // totalSec: total seconds between date to be formatted and today's date;
-//     return [
-//       ['just now', 'right now'],
-//       ['%s seconds ago', 'in %s seconds'],
-//       ['1 minute ago', 'in 1 minute'],
-//       ['%s minutes ago', 'in %s minutes'],
-//       ['1 hour ago', 'in 1 hour'],
-//       ['%s hours ago', 'in %s hours'],
-//       ['1 day ago', 'in 1 day'],
-//       ['%s days ago', 'in %s days'],
-//       ['1 week ago', 'in 1 week'],
-//       ['%s weeks ago', 'in %s weeks'],
-//       ['1 month ago', 'in 1 month'],
-//       ['%s months ago', 'in %s months'],
-//       ['1 year ago', 'in 1 year'],
-//       ['%s years ago', 'in %s years']
-//     ][index];
-//   };
-//   timeago.register('pt_BR', locale);
-//   // then you can use it
-//   console.log(timeago.format(new Date(), 'pt_BR'));
+function ja(number, index) {
+    return [
+        ['すこし前', 'すぐに'],
+        ['%s秒前', '%s秒以内'],
+        ['1分前', '1分以内'],
+        ['%s分前', '%s分以内'],
+        ['1時間前', '1時間以内'],
+        ['%s時間前', '%s時間以内'],
+        ['1日前', '1日以内'],
+        ['%s日前', '%s日以内'],
+        ['1週間前', '1週間以内'],
+        ['%s週間前', '%s週間以内'],
+        ['1ヶ月前', '1ヶ月以内'],
+        ['%sヶ月前', '%sヶ月以内'],
+        ['1年前', '1年以内'],
+        ['%s年前', '%s年以内'],
+    ][index];
+}
+timeago.register('ja', ja);

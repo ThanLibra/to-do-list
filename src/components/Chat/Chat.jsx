@@ -9,7 +9,7 @@ class Chat extends Component {
         super(props);
         this.state = {
             message: '',
-            lang: { en: 'en', jp: 'jp' },
+            lang: { en: 'en', ja: 'ja' },
             currentLang: 'en',
             scrollTop: 0
         }
@@ -44,7 +44,7 @@ class Chat extends Component {
         // this.refListMessage.current.scrollTo({ top: this.state.scrollTop, behavior: 'smooth' })
     }
     changeLang = () => {
-        const cLang = this.state.currentLang == this.state.lang.en ? this.state.lang.jp : this.state.lang.en;
+        const cLang = this.state.currentLang == this.state.lang.en ? this.state.lang.ja : this.state.lang.en;
         i18n.changeLanguage(cLang)
         this.setState({ currentLang: cLang })
     }
@@ -66,7 +66,7 @@ class Chat extends Component {
                                     <div key={key} className="container border-0">
                                         <img src="https://www.w3schools.com/w3images/avatar_g2.jpg" alt="Avatar" className="right"></img>
                                         <p className="text-right" >{mess.content}</p>
-                                        <p className="text-right small">{timeago.format(mess.time, 'ja')}</p>
+                                        <p className="text-right small">{timeago.format(mess.time, this.state.currentLang)}</p>
                                     </div>
                                 )
                             })
